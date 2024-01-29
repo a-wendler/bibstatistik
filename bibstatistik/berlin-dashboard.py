@@ -19,3 +19,17 @@ tortendiagram = alt.Chart(geschlecht.reset_index()).mark_arc(innerRadius=50).enc
 )
 
 st.altair_chart(tortendiagram, use_container_width=True)
+
+sachgruppen = df.Sachgruppe.value_counts().index.to_list()
+
+sachgruppen_auswahl = st.selectbox("Sachgruppe", sachgruppen)
+
+
+sachgruppen_geschlecht = df[df.Sachgruppe == sachgruppen_auswahl].groupby(['Sachgruppe', "Geschlecht"]).agg({"Mediennummer":"count"}).reset_index()
+
+sachgruppen_torte = alt.Chart(sachgruppen_geschlecht).mark_arc(innerRadius=50).encode(
+    theta="Mediennummer",
+    color="Geschlecht:N",
+)
+
+st.altair_chart(sachgruppen_torte, use_container_width=True)
