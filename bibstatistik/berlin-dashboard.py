@@ -4,7 +4,7 @@ import altair as alt
 
 @st.cache_data
 def load_data() -> pd.DataFrame:
-    df = pd.read_csv("bibstatistik/berlin-data/AusEx_Pankow_2023.csv", low_memory=False)
+    df = pd.read_csv("https://stash.cat/share/I0HRHpzjWSB6kv?download=true", low_memory=False)
     df = df[df['Ausleihtyp'] != 'O']
     return df
 
