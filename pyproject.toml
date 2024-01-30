@@ -6,7 +6,7 @@ authors = ["André Wendler <andre.wendler@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 pandas = "^2.2.0"
 ipykernel = "^6.29.0"
 streamlit = "^1.30.0"
